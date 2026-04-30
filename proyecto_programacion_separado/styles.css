@@ -30,7 +30,6 @@ button { font: inherit; }
 
 .container {
   margin: 0 auto;
-
 }
 
 .narrow {  
@@ -83,7 +82,6 @@ button { font: inherit; }
 }
 
 .site-nav a:hover,
-
 .site-nav a.active {
   color: var(--text);
   background: rgba(255, 255, 255, 0.08);
@@ -109,7 +107,6 @@ button { font: inherit; }
   background: #fff;
   display: block;
 }
-
 
 .hero {
   position: relative;
@@ -214,7 +211,7 @@ button { font: inherit; }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.4rem;
-  justify-items: center; /* centra cada article */
+  justify-items: center;
 }
 
 .feature-card,
@@ -228,7 +225,6 @@ button { font: inherit; }
   box-shadow: var(--shadow);
   border-radius: var(--radius);
 }
-
 
 .feature-card {
   overflow: hidden;
@@ -249,6 +245,7 @@ button { font: inherit; }
   text-align: center;
 }
 .inner-main { min-height: calc(100vh - 180px); }
+
 .history-layout,
 .video-layout,
 .game-layout,
@@ -257,12 +254,26 @@ button { font: inherit; }
   gap: 1.5rem;
   align-items: center;
 }
-.history-layout,
-.video-layout { 
+
+/* --- AJUSTES DE GRID (MITAD/MITAD Y VIDEO GRANDE) --- */
+.history-layout { 
   grid-template-columns: 1fr 1fr !important; 
   align-items: stretch !important;
 }
-.history-layout.reverse { grid-template-columns: 1fr 1.1fr; }
+.history-layout.reverse { 
+  grid-template-columns: 1fr 1fr !important; 
+}
+
+.video-layout {
+  grid-template-columns: 1fr !important;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- AJUSTES DE IMAGEN Y TEXTO --- */
+.history-media {
+  display: flex;
+}
 .history-media img {
   width: 100%;
   height: 100%;
@@ -272,11 +283,14 @@ button { font: inherit; }
   display: grid;
   gap: 1rem;
 }
+
 .history-copy {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 1.6rem;
 }
+
 .history-copy h2,
 .video-info h2,
 .board-card h2 { margin-top: 0; }
@@ -329,6 +343,7 @@ button { font: inherit; }
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
+  align-items: center; /* Alinea los botones con el temporizador */
   margin-top: 1rem;
 }
 .control-btn {
@@ -343,6 +358,15 @@ button { font: inherit; }
   cursor: pointer;
 }
 .control-btn img { width: 24px; height: 24px; }
+
+/* NUEVO: Estilo del temporizador del video */
+.video-time {
+  display: flex;
+  align-items: center;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+  margin-left: 10px;
+}
 
 .game-layout { grid-template-columns: 1fr; }
 .board-card { max-width: 980px; margin: 0 auto; }
@@ -367,10 +391,8 @@ button { font: inherit; }
 }
 
 .dropzone:hover{
-background: #000;
-
+  background: #000;
 }
-
 
 .dropzone.drag-over {
   border-color: var(--primary);
@@ -452,11 +474,9 @@ background: #000;
   transition: all 0.8s ease;
 }
 
-
 .from-izquierda {
   transform: translateX(-80px);
 }
-
 
 .from-derecha {
   transform: translateX(80px);
@@ -477,6 +497,59 @@ background: #000;
   transform: translateY(0);
 }
 
+/* =========================================================
+   ANIMACIONES 3D EN SCROLL (Contenido y Video)
+========================================================= */
+.history-layout, 
+.video-layout {
+  perspective: 1200px; 
+}
+
+.history-layout.reveal, 
+.video-layout.reveal {
+  transform: none !important;
+  opacity: 1 !important; 
+}
+
+.history-layout .history-media,
+.history-layout .history-copy,
+.video-layout .video-card {
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.17, 0.84, 0.44, 1); 
+}
+
+.history-layout:not(.reverse) .history-media,
+.history-layout.reverse .history-copy {
+  transform: translateZ(-300px) translateX(-150px) rotateY(15deg);
+}
+
+.history-layout:not(.reverse) .history-copy,
+.history-layout.reverse .history-media {
+  transform: translateZ(-300px) translateX(150px) rotateY(-15deg);
+}
+
+.video-layout .video-card {
+  transform: translateZ(-400px) translateY(80px) rotateX(15deg);
+}
+
+.history-layout.visible .history-media,
+.history-layout.visible .history-copy,
+.video-layout.visible .video-card {
+  opacity: 1;
+  transform: translateZ(0) translateX(0) translateY(0) rotateY(0) rotateX(0);
+}
+
+.history-layout.visible .history-copy {
+  transition-delay: 0.15s;
+}
+.history-layout.reverse.visible .history-media {
+  transition-delay: 0.15s;
+}
+.video-layout.visible .video-card {
+  transition-delay: 0.2s;
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
   .grid-cards,
   .history-layout,
@@ -485,9 +558,17 @@ background: #000;
   .cta-panel,
   .drop-zones,
   .timeline-item {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important; /* !important agregado para celulares */
   }
   .year { justify-self: start; }
+  
+  /* Desactivar 3D en celulares para mejor rendimiento y lectura */
+  .history-layout:not(.reverse) .history-media,
+  .history-layout.reverse .history-copy,
+  .history-layout:not(.reverse) .history-copy,
+  .history-layout.reverse .history-media {
+    transform: translateZ(-100px) translateY(50px) rotateY(0deg);
+  }
 }
 
 @media (max-width: 760px) {
@@ -511,7 +592,6 @@ background: #000;
   .footer-content { flex-direction: column; }
 }
 
-
 .historia-page .page-banner,
 .juguemos-page .page-banner {
   min-height: 420px;
@@ -523,4 +603,3 @@ background: #000;
     linear-gradient(180deg, rgba(3, 8, 18, 0.4), rgba(5, 10, 20, 0.9)),
     url("assets/imagenes/fondo.jpg") center / cover no-repeat;
 }
-
