@@ -255,7 +255,7 @@ button { font: inherit; }
   align-items: center;
 }
 
-/* --- AJUSTES DE GRID (MITAD/MITAD Y VIDEO GRANDE) --- */
+
 .history-layout { 
   grid-template-columns: 1fr 1fr !important; 
   align-items: stretch !important;
@@ -270,7 +270,7 @@ button { font: inherit; }
   margin: 0 auto;
 }
 
-/* --- AJUSTES DE IMAGEN Y TEXTO --- */
+
 .history-media {
   display: flex;
 }
@@ -343,7 +343,7 @@ button { font: inherit; }
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
-  align-items: center; /* Alinea los botones con el temporizador */
+  align-items: center; 
   margin-top: 1rem;
 }
 .control-btn {
@@ -359,7 +359,6 @@ button { font: inherit; }
 }
 .control-btn img { width: 24px; height: 24px; }
 
-/* NUEVO: Estilo del temporizador del video */
 .video-time {
   display: flex;
   align-items: center;
@@ -497,9 +496,7 @@ button { font: inherit; }
   transform: translateY(0);
 }
 
-/* =========================================================
-   ANIMACIONES 3D EN SCROLL (Contenido y Video)
-========================================================= */
+
 .history-layout, 
 .video-layout {
   perspective: 1200px; 
@@ -531,7 +528,9 @@ button { font: inherit; }
 .video-layout .video-card {
   transform: translateZ(-400px) translateY(80px) rotateX(15deg);
 }
-
+#titulo-video{
+  color:#000,
+}
 .history-layout.visible .history-media,
 .history-layout.visible .history-copy,
 .video-layout.visible .video-card {
@@ -549,7 +548,7 @@ button { font: inherit; }
   transition-delay: 0.2s;
 }
 
-/* ================= RESPONSIVE ================= */
+
 @media (max-width: 900px) {
   .grid-cards,
   .history-layout,
