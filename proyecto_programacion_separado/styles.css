@@ -258,13 +258,14 @@ button { font: inherit; }
   align-items: center;
 }
 .history-layout,
-.video-layout { grid-template-columns: 1.15fr 1fr; }
+.video-layout { 
+  grid-template-columns: 1fr 1fr !important; 
+  align-items: stretch !important;
+}
 .history-layout.reverse { grid-template-columns: 1fr 1.1fr; }
 .history-media img {
   width: 100%;
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
+  height: 100%;
   object-fit: cover;
 }
 .history-media.stacked {
@@ -272,7 +273,9 @@ button { font: inherit; }
   gap: 1rem;
 }
 .history-copy {
-  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .history-copy h2,
 .video-info h2,
@@ -508,7 +511,6 @@ background: #000;
   .footer-content { flex-direction: column; }
 }
 
-/* ================= HEADER HISTORIA Y JUEGO ================= */
 
 .historia-page .page-banner,
 .juguemos-page .page-banner {

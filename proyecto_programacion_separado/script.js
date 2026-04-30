@@ -7,6 +7,7 @@ if (menuToggle && siteNav) {
   });
 }
 
+// --- ANIMACIONES REVEAL (Se mantiene igual) ---
 const revealElements = document.querySelectorAll('.reveal');
 
 if (revealElements.length) {
@@ -22,13 +23,40 @@ if (revealElements.length) {
   revealElements.forEach((element) => revealObserver.observe(element));
 }
 
+// --- CONTROLES DE VIDEO (Actualizado con el tiempo) ---
 const video = document.getElementById('mainVideo');
 const playBtn = document.getElementById('playBtn');
 const pauseBtn = document.getElementById('pauseBtn');
 
+// Nuevos elementos para mostrar el tiempo
+const currentTimeEl = document.getElementById('currentTime');
+const durationTimeEl = document.getElementById('durationTime');
+
+// Función auxiliar para convertir segundos a formato MM:SS
+function formatTime(seconds) {
+  if (isNaN(seconds)) return "00:00"; // Evita mostrar "NaN:NaN" antes de cargar
+  const min = Math.floor(seconds / 60);
+  const sec = Math.floor(seconds % 60);
+  return `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}`;
+}
+
 if (video && playBtn && pauseBtn) {
+  // Controles de reproducir y pausar que ya tenías
   playBtn.addEventListener('click', () => video.play());
   pauseBtn.addEventListener('click', () => video.pause());
+
+  // Lógica para la duración del video
+  if (currentTimeEl && durationTimeEl) {
+    // 1. Muestra la duración total cuando el video carga sus datos
+    video.addEventListener('loadedmetadata', () => {
+      durationTimeEl.textContent = formatTime(video.duration);
+    });
+
+    // 2. Actualiza el reloj del lado izquierdo mientras el video avanza
+    video.addEventListener('timeupdate', () => {
+      currentTimeEl.textContent = formatTime(video.currentTime);
+    });
+  }
 }
 
 /* =========================
