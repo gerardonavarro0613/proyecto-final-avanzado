@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historia de la Programación</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Raleway:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="historia-page">
+  <header class="site-header inner-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <img src="assets/imagenes/logo.png" alt="Logo Programación e Historia" />
+        <span>PROGRAMACIÓN E HISTORIA</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav">
+        <a class="active" href="historia.html">Historia</a>
+        <a href="juguemos.html">Juguemos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="inner-main">
+
+    <section class="page-banner reveal">
+      <div class="container narrow">
+        <h1>Historia de la Programación</h1>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container history-layout reveal">
+        <div class="history-media">
+          <img src="assets/imagenes/1-800x534.jpg" alt="Historia de la programación" />
+        </div>
+
+        <div class="history-copy">
+          <h2>El principio de la historia de la programación</h2>
+          <p>
+            El primer lenguaje de programación fue un algoritmo creado por
+            <strong>Ada Lovelace</strong> en 1883 para el motor analítico de Charles Babbage.
+            Su propósito era calcular los números de Bernoulli.
+          </p>
+          <p>
+            En 1936, los códigos informáticos fueron formalizados por
+            <strong>Alonzo Church</strong> y <strong>Alan Turing</strong>, sentando bases
+            teóricas clave para la computación moderna.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container history-layout reverse reveal">
+        <div class="history-copy">
+          <h2>Lenguaje de ensamblaje</h2>
+          <p>
+            Los primeros ordenadores modernos de los años 40 tenían muchas limitaciones
+            de velocidad y memoria. Por eso, los programadores escribían manualmente
+            programas en lenguaje ensamblador, una tarea exigente y poco amigable.
+          </p>
+          <p>
+            Ese escenario impulsó la necesidad de crear <strong>lenguajes de alto nivel</strong>
+            para reducir la complejidad y permitir desarrollos más rápidos y mantenibles.
+          </p>
+        </div>
+
+        <div class="history-media">
+          <img src="assets/imagenes/nerdpol-ken-den.webp" alt="Lenguaje ensamblador" />
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container history-layout reveal">
+        <div class="history-media">
+          <img src="assets/imagenes/img-historia.jpg" alt="Lenguajes de programación" />
+        </div>
+
+        <div class="history-copy">
+          <h2>Evolución de los lenguajes</h2>
+          <p>
+            FORTRAN, creado por John Backus en 1957, es uno de los lenguajes más antiguos
+            que todavía continúa en uso. Fue desarrollado para la computación científica,
+            matemática y estadística.
+          </p>
+          <p>
+            En 1959 se desarrolló COBOL, creado por Grace Murray Hopper, pensado para
+            transacciones empresariales y sistemas administrativos.
+          </p>
+          <p>
+            En 1964 apareció BASIC, diseñado como un lenguaje más simple para personas sin
+            fuertes conocimientos técnicos o matemáticos.
+          </p>
+          <p>
+            Entre 1969 y 1973 se creó C, desarrollado por Dennis Ritchie en los laboratorios
+            Bell para el sistema Unix. Luego, Bjarne Stroustrup modificó C y dio origen a C++.
+          </p>
+          <p>
+            Todo este camino permitió que los lenguajes siguieran evolucionando hasta llegar
+            a las tecnologías actuales.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container reveal video-layout">
+        <div class="video-card">
+          <video id="mainVideo" poster="assets/imagenes/img-video.jpg">
+            <source src="assets/video/historia-Comp.mp4" type="video/mp4">
+            <source src="assets/video/historia-Comp.ogv" type="video/ogg">
+            Tu navegador no puede reproducir este video.
+          </video>
+
+          <div class="video-controls">
+            <button id="playBtn" class="control-btn" type="button">
+              <img src="assets/imagenes/play.svg" alt="Reproducir" />
+            </button>
+
+            <button id="pauseBtn" class="control-btn" type="button">
+              <img src="assets/imagenes/pausa.svg" alt="Pausar" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <img src="assets/imagenes/logo.png" alt="Logo del sitio" />
+
+      <div>
+        <h3>PROGRAMACIÓN E HISTORIA</h3>
+        <p>Sitio con fines educativos - versión recreada por Gerardo Navarro</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

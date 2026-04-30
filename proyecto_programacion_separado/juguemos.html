@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juguemos - Rompecabezas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="juguemos-page">
+  <header class="site-header inner-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <img src="assets/imagenes/logo.png" alt="Logo Programación e Historia" />
+        <span>PROGRAMACIÓN E HISTORIA</span>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="historia.html">Historia</a>
+        <a class="active" href="juguemos.html">Juguemos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="inner-main">
+    <section class="page-banner reveal">
+      <div class="container narrow">
+        <h1>Juguemos un poco</h1>
+       </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container reveal game-layout">
+        <div class="board-card">
+          <h2>Armemos el rompecabezas</h2>
+          <p class="game-subtitle">Arrastrá cada pieza y soltala en el recuadro correcto.</p>
+
+          <div class="drop-zones">
+            <div class="dropzone" data-accept="pieza1">Arrastre y suelte la imagen aquí</div>
+            <div class="dropzone" data-accept="pieza2">Arrastre y suelte la imagen aquí</div>
+            <div class="dropzone" data-accept="pieza3">Arrastre y suelte la imagen aquí</div>
+          </div>
+
+          <div class="pieces-area">
+            <img id="pieza2" class="piece" draggable="true" src="assets/imagenes/rompe2.png" alt="Pieza 2 del rompecabezas" />
+            <img id="pieza3" class="piece" draggable="true" src="assets/imagenes/Rompe3.png" alt="Pieza 3 del rompecabezas" />
+            <img id="pieza1" class="piece" draggable="true" src="assets/imagenes/Rompe1.png" alt="Pieza 1 del rompecabezas" />
+          </div>
+
+          <div class="game-actions">
+            <button id="resetPuzzle" class="btn btn-primary" type="button">Reiniciar</button>
+            <p id="gameMessage" class="game-message"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <img src="assets/imagenes/logo.png" alt="Logo del sitio" />
+      <div>
+        <h3>PROGRAMACIÓN E HISTORIA</h3>
+        <p>Sitio con fines educativos - versión recreada y mejorada para presentación.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
